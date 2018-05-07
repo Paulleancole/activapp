@@ -9,7 +9,7 @@ import { AlertController, LoadingController, Platform } from 'ionic-angular';
 })
 export class inicioPage {
 
- 
+  git = "";
   imgCopa: string = "src/assets/images/s8l43ELwTZ2heUtyHQEW_trofeo.jpg";
   headerMisPuntos: string = "Tienes 700 puntos!"
   ranking: string = "Estás en el puesto 145"

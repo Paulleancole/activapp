@@ -1,0 +1,131 @@
+<!--
+  Generated template for the NewPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ranking</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <!-- width-10 width-20 width-25 width-33 width-50 width-67 width-75 width-80 width-90 -->
+
+  <ion-list>
+    <ion-item no-padding>
+      <ion-row text-center>
+        <ion-col no-padding><strong>#</strong></ion-col>
+        <ion-col width-67 no-padding><strong>Nickname</strong></ion-col>
+        <ion-col width-20 no-padding><strong>Puntos</strong></ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item no-padding *ngFor="let item of ranking_items">
+      <ion-row center *ngIf="item.Posicion != miRanking_items[0].Posicion">
+        <ion-col text-center no-padding><strong>{{item.Posicion}}</strong></ion-col>
+        <ion-col width-67 no-padding no-margin>
+          <ion-item no-lines no-padding no-margin>
+            <ion-avatar item-left>
+              <img src={{item.Foto}}>
+            </ion-avatar>
+            <span no-padding no-margin>{{item.Nombre}}</span>
+          </ion-item>
+        </ion-col>
+
+        <ion-col width-20 text-center no-padding><span color="primary"><strong>{{ item.Puntos }}</strong></span></ion-col>
+
+      </ion-row>
+    </ion-item>
+    <ion-item no-padding *ngFor="let item of miRanking_items">
+      <ion-row center>
+        <ion-col no-padding text-center><strong>{{item.Posicion}}</strong></ion-col>
+        <ion-col width-67 no-padding no-margin>
+          <ion-item no-lines no-padding no-margin>
+            <ion-avatar item-left>
+              <img src={{item.Foto}}>
+            </ion-avatar>
+            <span no-padding no-margin><strong>{{item.Nombre}}</strong></span>
+          </ion-item>
+        </ion-col>
+
+        <ion-col width-20 no-padding text-center><span color="primary"><strong>{{ item.Puntos }}</strong></span></ion-col>
+
+      </ion-row>
+    </ion-item>
+
+
+  </ion-list>
+
+</ion-content>
+
+
+<!--<ion-content padding>
+
+  <ion-list>
+
+        <ion-item>
+      <ion-row text-wrap>
+        <ion-col><strong>#</strong></ion-col>
+        <ion-col width-67><strong>Nickname</strong></ion-col>
+        <ion-col width-20 text-end><strong>Puntos</strong></ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item *ngFor="let item of ranking_items" text-wrap>
+
+      <ion-row *ngIf="item.Posicion != miRanking_items[0].Posicion">
+        <ion-col>{{item.Posicion}}</ion-col>
+        <ion-col width-67>{{item.Nombre}}</ion-col>
+        <ion-col width-20><p text-right color="danger">{{ item.Puntos }}</p></ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="item.Posicion === miRanking_items[0].Posicion" style="font-weight:bold;color:">
+        <ion-col>{{item.Posicion}}</ion-col>
+        <ion-col width-67>{{item.Nombre}}</ion-col>
+        <ion-col width-20><p text-right color="danger">{{ item.Puntos }}</p></ion-col>
+      </ion-row>
+
+    </ion-item>
+
+    <ion-item *ngFor="let item of miRanking_items" text-wrap>
+      <ion-row *ngIf="miRanking_items[0].Posicion > 10" style="font-weight:bold">
+        <ion-col>{{item.Posicion}}</ion-col>
+        <ion-col>
+          <ion-avatar>
+            <img src="https://i2.wp.com/hsmai-europe.com/wp-content/uploads/2017/05/20160105-Travel-Tripper-0013.1-copy-1.jpg?resize=855%2C536">
+          </ion-avatar>
+        </ion-col>
+        <ion-col>
+                  {{item.Nombre}}
+        </ion-col>
+        <ion-col><p text-right color="danger">{{ item.Puntos }}</p></ion-col>
+
+      </ion-row>
+    </ion-item>
+
+    <ion-item *ngFor="let item of miRanking_items" text-wrap>
+      <ion-row *ngIf="miRanking_items[0].Posicion > 10" style="font-weight:bold">
+        {{item.Posicion}}
+
+          <ion-avatar>
+            <img src="https://i2.wp.com/hsmai-europe.com/wp-content/uploads/2017/05/20160105-Travel-Tripper-0013.1-copy-1.jpg?resize=855%2C536">
+          </ion-avatar>
+
+     <p text-right color="danger" item-right>{{ item.Puntos }}</p>
+
+      </ion-row>
+    </ion-item>
+  
+  </ion-list>
+
+
+ 
+
+</ion-content>-->

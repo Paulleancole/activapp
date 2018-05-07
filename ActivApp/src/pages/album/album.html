@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Álbum</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid *ngFor="let number of lista_items">
+
+    <!--Imagen-->
+    <ion-row>
+      <ion-col text-center width-50>
+        <img src="resources/actividad{{ actividades_items[number].idSticker }}_on.jpg">
+      </ion-col>
+      <ion-col text-center width-50>
+        <div *ngIf="number+1<actividades_items.length">
+          <img src="resources/actividad{{ actividades_items[number+1].idSticker }}_on.jpg">
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!--Titulo-->
+    <ion-row>
+      <ion-col text-center width-50>
+        <h4>{{ actividades_items[number].nombreActividad }}</h4>
+      </ion-col>
+      <ion-col text-center width-50>
+        <div *ngIf="number+1<actividades_items.length">
+          <h4>{{ actividades_items[number+1].nombreActividad }}</h4>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <!--Puntos-->
+    <ion-row>
+      <ion-col text-center width-50>
+        {{ actividades_items[number].puntos }} ptos.
+      </ion-col>
+      <ion-col text-center width-50>
+        <div *ngIf="number+1<actividades_items.length">
+          {{ actividades_items[number+1].puntos }} ptos.
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>      
+
+        <!--<ion-grid>
+          <ion-row *ngFor="let row of grid">
+            <ion-col text-center width-50 *ngFor="let item of row">
+              <h5>
+                {{ item.nombreActividad }}:{{actividades_items[0].nombreActividad}}
+              </h5>
+              <img src="src/assets/images/sports stickers 2.jpg">
+              <p *ngIf="item.Puntos != '!' " vertical-align="bottom"> {{ item.puntos }} ptos</p>
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>-->
+
+        <!--<ion-grid>
+    <ion-row *ngFor="let row of grid">
+      <ion-col text-center width-50 *ngFor="let item of row">
+        <img src="{{ item.Imagen }}">
+        <h2>{{ item.Actividad }}</h2>
+        <p *ngIf="item.Puntos != '!' "> {{ item.Puntos }}ptos</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>-->
+        <!--<ion-list>
+    <ion-item *ngFor="let item of actividades_items">
+      Act: {{ item.nombreActividad }}
+    </ion-item>
+  </ion-list>-->
+
+</ion-content>

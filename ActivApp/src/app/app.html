@@ -1,0 +1,54 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!--<ion-content>
+    <ion-list>
+      <ion-item menuClose ion-item *ngFor="let item of menu; let i=index" (click)="openPage(i, item)" [ngClass]="{active: false}">
+        {{item.title}}
+
+        <ion-icon color="success" item-right [name]="isGroupSown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+        <div *ngIf="isGroupShown(i)">
+          <ion-item *ngFor="let subitem of item.subitems" (click)="openPage(0, subitem)">
+            {{subitem.title}}
+          </ion-item>
+        </div>
+
+      </ion-item>
+    </ion-list>
+  </ion-content>-->
+
+  <ion-content>
+    <ion-list>
+      <ion-item menuClose ion-item (click)="openPage('Inicio')">Inicio</ion-item>
+      <ion-item menuClose ion-item (click)="openPage('Mi Usuario')">Mi usuario</ion-item>
+      <ion-item menuClose ion-item (click)="openPage('Mis Puntos')">Mis puntos</ion-item>
+      <ion-item menuClose ion-item (click)="openPage('Ranking')">Ranking</ion-item>
+      <ion-item menuClose ion-item (click)="openPage('Logros')">Logros</ion-item>
+
+      <ion-item ion-item (click)="showGroup(1)">
+        Álbum de actividades
+        <ion-icon color="success" item-right [name]="isGroupShown(1) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+      </ion-item>
+
+      <div *ngIf="isGroupShown(1)">
+        <ion-item menuClose (click)="openPage('resumenActividades')"><ion-icon item-left name="arrow-dropright"></ion-icon>Resumen de actividades</ion-item>
+        <ion-item menuClose (click)="openPage('Mis Puntos')"><ion-icon item-left name="arrow-dropright"></ion-icon>Fotosafari</ion-item>
+        <ion-item menuClose (click)="openPage('Album Acciones', {'ActividadID': 1})"><ion-icon item-left name="arrow-dropright"></ion-icon>Running</ion-item>
+        <ion-item menuClose (click)="openPage('Album Acciones', {'ActividadID': 2})"><ion-icon item-left name="arrow-dropright"></ion-icon>Yoga</ion-item>
+        <ion-item menuClose (click)="openPage('Album Acciones', {'ActividadID': 3})"><ion-icon item-left name="arrow-dropright"></ion-icon>Actividades Aeróbicas</ion-item>
+        <ion-item menuClose (click)="openPage('Album Acciones', {'ActividadID': 4})"><ion-icon item-left name="arrow-dropright"></ion-icon>Extras</ion-item>
+
+      </div>
+      <ion-item menuClose ion-item (click)="openPage('Lector QR')">Lector QR</ion-item>
+    </ion-list>
+  </ion-content>
+
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

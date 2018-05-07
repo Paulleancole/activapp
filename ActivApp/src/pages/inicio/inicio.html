@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Inicio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h5>{{frase}}</h5>
+  <p style="font-weight:200">{{fraseMotivacional}}</p>
+
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src={{imgCopa}}>
+      </ion-thumbnail>
+      <h2>{{ headerMisPuntos }}</h2>
+      <p>{{ranking}}</p>
+    </ion-item>
+  </ion-list>
+
+  <h5>{{ultimosLogrosConseguidos}}</h5>
+
+  <ion-list>
+    <ion-item *ngFor="let item of logros_items" text-wrap>
+      {{item.Fecha}} {{item.Logro}}
+      <ion-note item-right>{{ item.Puntos }}pts</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <h5>{{ultimosLogrosConseguidos}}</h5>
+
+  <ion-list>
+    <ion-item *ngFor="let item of acciones_items" no-lines>
+      <ion-avatar item-left>
+        <img src="resources/actividad{{ item.idSticker }}_on.jpg">
+      </ion-avatar>
+      <div no-padding no-margin>
+        {{item.nombreAccion}}
+        <p>{{item.mesDia}}</p>
+      </div>
+      <ion-note item-right><span color="primary"><strong>{{ item.puntos }} pts.</strong></span></ion-note>
+    </ion-item>
+  </ion-list>
+  
+  <h5>{{proximosEventos}}</h5>
+
+  <ion-list>
+    <ion-item *ngFor="let item of proximosEventos_items" text-wrap>
+      {{item.Fecha}} {{item.Logro}}
+      <ion-note item-right>{{ item.Puntos }}pts.</ion-note>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+

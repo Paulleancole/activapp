@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Mis Puntos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail item-left>
+        <img src={{imgCopa}} width="32" height="32">
+      </ion-thumbnail>
+      <h2>{{misPuntos}}</h2>
+      <p>{{ranking}}</p>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-item style = "padding-right: 0px;">
+      <ion-row>
+        <ion-col no-padding width-80><strong>Acción</strong></ion-col>
+        <ion-col width-20 no-padding text-center><strong>Puntos</strong></ion-col>
+      </ion-row>
+    </ion-item>
+
+
+
+    <ion-item *ngFor="let mes of meses_items">
+      <ion-row style="margin-top: 16px; margin-bottom: 8px;">
+        <ion-col no-padding no-margin>
+         {{mostrarMes (mes[0].fechaAccion.substring(5,7))}}
+          <br>
+          <ion-item no-padding no-lines *ngFor="let accion of mes">
+            <ion-row center>
+              <ion-col width-80 no-padding no-margin>
+                <ion-item no-lines no-padding no-margin>
+                  <ion-avatar item-left>
+                    <img src="resources/actividad{{ accion.idSticker }}_on.jpg">
+                  </ion-avatar>
+                  <div no-padding no-margin>
+                    {{accion.nombreAccion}}
+                    <p>{{accion.mesDia}}</p>
+                  </div>
+                </ion-item>
+              </ion-col>
+
+              <ion-col width-20 no-padding text-center><span color="primary"><strong>{{ accion.puntos }}</strong></span></ion-col>
+
+             </ion-row>
+
+
+           </ion-item>
+
+
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>
